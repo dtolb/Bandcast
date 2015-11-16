@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bandcast by inetCatapult</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:200' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Bandcast</h1>
+      <h2 class="project-tagline">Bandwidth SMS Broadcast System</h2>
+      <a href="https://github.com/inetCatapult/bandcast" class="btn">View on GitHub</a>
+      <a href="https://github.com/inetCatapult/bandcast/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/inetCatapult/bandcast/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="bandcast-" class="anchor" href="#bandcast-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bandcast <a href="https://magnum.travis-ci.com/inetCatapult/bandcast"><img src="https://magnum.travis-ci.com/inetCatapult/bandcast.svg?token=Ru7LTxcqexvUwqUtAzFf&amp;branch=master" alt="Build Status"></a>
+</h1>
+
+<p>Two Way SMS Communication for Events
+Bandcast allows Event Attendees and Event Organizers to communicate over a common phone number.
+Organizers are able to directly text users as well as message every attendee at once.
+Attendees are able to ask questions or provide feedback by texting the bandcast number.</p>
+
+<h2>
+<a id="bandcast-scenarios" class="anchor" href="#bandcast-scenarios" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bandcast Scenarios:</h2>
+
+<p><img src="https://s3.amazonaws.com/bandcast-readme-images/Broadcast_Scenarios.png" alt="Bandcast Scenarios"></p>
+
+<h2>
+<a id="bandcast-flowchart" class="anchor" href="#bandcast-flowchart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bandcast Flowchart:</h2>
+
+<p><img src="https://s3.amazonaws.com/bandcast-readme-images/FlowChart.png" alt="Flow Chart"></p>
+
+<h2>
+<a id="application-setup" class="anchor" href="#application-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Setup</h2>
+
+<h3>
+<a id="configure-bandwidth-application-platform" class="anchor" href="#configure-bandwidth-application-platform" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure Bandwidth Application Platform</h3>
+
+<p>Requires App Platform Account with provisioned number and application setup.</p>
+
+<h5>
+<a id="provisioning-number-instructions" class="anchor" href="#provisioning-number-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Provisioning Number Instructions:</h5>
+
+<p><a href="http://ap.bandwidth.com/docs/how-to-guides/buying-new-phone-numbers/">First purchase a number</a></p>
+
+<h5>
+<a id="configuring-application" class="anchor" href="#configuring-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuring application</h5>
+
+<h6>
+<a id="create-new-application" class="anchor" href="#create-new-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create new Application</h6>
+
+<p>First create a new Application.</p>
+
+<ul>
+<li>Set the Application Name</li>
+<li>Set the Call URL </li>
+<li>Set the Message URL</li>
+</ul>
+
+<p><img src="https://s3.amazonaws.com/bandcast-readme-images/configure_application.png" alt="application configure"></p>
+
+<h6>
+<a id="add-number-to-application" class="anchor" href="#add-number-to-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add Number to Application</h6>
+
+<p>Click the Add Numbers Button at the Bottom</p>
+
+<p><img src="https://s3.amazonaws.com/bandcast-readme-images/add_phonenumber.png" alt="add number"></p>
+
+<p>Select the number ordered above</p>
+
+<p><img src="https://s3.amazonaws.com/bandcast-readme-images/select_phonenumber.png" alt="select number"></p>
+
+<p>Click the save button</p>
+
+<h5>
+<a id="final-configuration" class="anchor" href="#final-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final Configuration</h5>
+
+<p>Once configured the application should look something like this:</p>
+
+<p><img src="https://s3.amazonaws.com/bandcast-readme-images/final.png" alt="final setup"></p>
+
+<h3>
+<a id="setup-database" class="anchor" href="#setup-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup Database</h3>
+
+<p>Requires Postgresql connection. Follow the instructions here:</p>
+
+<ul>
+<li><a href="http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/">HomeBrew OSX</a></li>
+<li><a href="http://www.postgresql.org/download/linux/ubuntu/">Ubuntu</a></li>
+<li><a href="https://wiki.postgresql.org/wiki/Detailed_installation_guides">Here for other setups</a></li>
+</ul>
+
+<p>Then Create the database within Postgresql.</p>
+
+<ul>
+<li><a href="http://www.tutorialspoint.com/postgresql/postgresql_create_database.htm">Tutorial here</a></li>
+</ul>
+
+<h3>
+<a id="environment-varaibles" class="anchor" href="#environment-varaibles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Environment Varaibles</h3>
+
+<p>bandcast uses environment varaibles to configure the application.</p>
+
+<h4>
+<a id="database-related-variables" class="anchor" href="#database-related-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database Related Variables</h4>
+
+<p><code>DB_USER</code> - Username for Postgresql database</p>
+
+<p><code>DB_PASS</code> - Password for Postgresql database</p>
+
+<p><code>DB_NAME</code> - Name of Database</p>
+
+<p><code>DB_HOST</code> - Location of Postgresql database</p>
+
+<p><code>DB_PORT</code> - Database port</p>
+
+<h4>
+<a id="catapult-related-varaibles" class="anchor" href="#catapult-related-varaibles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catapult Related Varaibles</h4>
+
+<p><code>CATAPULT_BASE_URL</code> - The location of the catapult sever. Defaults to <code>'https://api.catapult.inetwork.com/v1'</code></p>
+
+<p><code>CATAPULT_USER_ID</code> - The Catapult User ID</p>
+
+<p><code>CATAPULT_API_TOKEN</code> - The Catapult API Token</p>
+
+<p><code>CATAPULT_API_SECRET</code> - The Catapult API Secret</p>
+
+<p><code>CATAPULT_END_POINT</code> - The path provided for the catapult callback. Defaults to <code>'/catapult'</code></p>
+
+<p><code>BANDCAST_NUMBER</code> - The Number for Broadcast to use</p>
+
+<h4>
+<a id="application-specific-varaibles" class="anchor" href="#application-specific-varaibles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Specific Varaibles</h4>
+
+<p><code>APP_LOG_LEVEL</code> - Logging level, defaults to <code>'debug'</code></p>
+
+<p><code>REQUEST_LOG_LEVEL</code> - Logging level for requests, defaults to <code>default</code></p>
+
+<p><code>PORT</code> - Server Port, defaults to <code>'8081'</code></p>
+
+<p><code>ORGANIZER_SUBSCRIBE_STRING</code> - String used to subscribe organizers</p>
+
+<h2>
+<a id="running-locally" class="anchor" href="#running-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Locally</h2>
+
+<h3>
+<a id="tip-for-running-locally" class="anchor" href="#tip-for-running-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tip for running locally</h3>
+
+<p>Create an application and provide the location of the server. To run locally I use <a href="http://ngrok.com">ngrok</a></p>
+
+<h3>
+<a id="installing-and-running" class="anchor" href="#installing-and-running" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing and Running</h3>
+
+<p>Once the environment variables are set run:</p>
+
+<pre><code>npm install
+npm start
+</code></pre>
+
+<h3>
+<a id="add-users" class="anchor" href="#add-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add users</h3>
+
+<p>Add users with the endpoint</p>
+
+<p><code>POST /users</code></p>
+
+<p>With body:</p>
+
+<div class="highlight highlight-json"><pre>{
+ <span class="pl-s"><span class="pl-pds">"</span>role<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>organizers | attendees<span class="pl-pds">"</span></span>,
+ <span class="pl-s"><span class="pl-pds">"</span>tn<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>&lt;tn-of-user&gt;<span class="pl-pds">"</span></span>,
+ <span class="pl-s"><span class="pl-pds">"</span>firstName<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>&lt;optional-first-name&gt;<span class="pl-pds">"</span></span>,
+ <span class="pl-s"><span class="pl-pds">"</span>lastName<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>&lt;optional-last-name&gt;<span class="pl-pds">"</span></span>
+}</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/inetCatapult/bandcast">Bandcast</a> is maintained by <a href="https://github.com/inetCatapult">inetCatapult</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+
+  </body>
+</html>
+
