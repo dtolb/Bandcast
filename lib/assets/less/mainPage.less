@@ -1,0 +1,46 @@
+html, .main, body {
+	background: @color-primary-med-dark;
+	margin: 0;
+}
+
+body {
+	padding-right: @gutter-size;
+	padding-left: @gutter-size;
+
+	overflow-x: hidden;
+}
+
+.wrap {
+	.drop-shadow(0 0 5 @color-black);
+}
+
+.main {
+	position: relative;
+	display: flex;
+	.justify-content(center);
+	.calc(min-height, ~'100% - 15vh');
+	width: 100%;
+	left: 0;
+	background-color: @color-content;
+
+	@media(max-width: @viewport-phone) {
+		display: block;
+		height: auto;
+		margin-bottom: 16vh;
+	}
+
+	@media(min-width: @viewport-phone) {
+		&.expanded {
+			width: 100% + @expand-size;
+			left: -(@expand-size / 2);
+		}
+	}
+}
+
+.center-buffer {
+	.flex-grow(0);
+	.flex-shrink(0);
+	.flex-basis(1);
+	width: 1px;
+	background-color: @color-primary-med-dark;
+}

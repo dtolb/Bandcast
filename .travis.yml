@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- '0.10'
+env:
+ - DB_USER=postgres
+addons:
+  postgresql: "9.3"
+branches:
+  only:
+  - dev
+deploy:
+  provider: heroku
+  app: bandcast
+  on:
+    repo: inetCatapult/bandcast
+    branch: dev
+  api_key:
+    secure: gJhHlGC7ThSlAUDTtXa7PAWiZRY54Ye8jldiMFkKCkaKKicKnmemySrsvCtyLGy/y0ItVOyf/T+O30D8AOb/sMhKsmO/kJ4AYvy7BCOPkkGHQcqwZzbFQA7brG3v3RlaSbizA2wkubMzn0cuRNR74u3SlZYxP1dmwrkAuZ+nO3g=

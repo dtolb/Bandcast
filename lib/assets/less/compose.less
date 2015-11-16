@@ -1,0 +1,179 @@
+.compose {
+	.modal();
+
+	background-color: @color-primary-med-dark;
+	border: 0px solid transparent;
+	border-radius: 4px;
+	height: 60%;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	.translate(-50%, -50%);
+	width: 0;
+
+	.drop-shadow(0 0 6 @color-black);
+
+	&.expanded {
+		width: @expand-size;
+
+		@media(max-width: @viewport-phone) {
+			width: 90%;
+		}
+
+		textarea, .compose-number {
+			padding: 16px;
+		}
+	}
+
+	.field {
+		background-color: @color-content;
+		.user-select(auto);
+		width: 100%;
+		height: 90%;
+		font-size: 12px;
+	}
+
+	.compose-number {
+		border: none;
+		outline: none;
+		background-color: @color-primary;
+		color: @color-content;
+		width: 100%;
+		padding: 0;
+		font-size: 16px;
+
+		option:disabled {
+			color: @color-black;
+		}
+	}
+}
+
+.compose-button {
+	background-color: @color-highlight;
+	.raised-button();
+	position: fixed;
+	left: 50%;
+	bottom: 12px;
+	z-index: 4;
+	width: 64px;
+	height: 64px;
+	.translate(-50%, -50%);
+	border-radius: 100%;
+
+	.content {
+		color: @color-primary-dark;
+		position: absolute;
+		left: 47%;
+		top: 50%;
+		.translate(-50%, -50%);
+	}
+
+	&.expanded {
+		cursor: auto;
+		opacity: 0;
+	}
+}
+
+.cancel-button {
+	background-color: @color-content-dark;
+	opacity: 0;
+	.raised-button();
+	position: fixed;
+	left: 50%;
+	bottom: 12px;
+	width: 64px;
+	height: 64px;
+	.translate(-50%, -50%);
+	border-radius: 100%;
+
+	.content {
+		color: @color-black;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		.translate(-50%, -50%);
+	}
+
+	&.expanded {
+		left: 33%;
+		opacity: 1;
+		.modal();
+	}
+
+	@media(max-width: @viewport-phone) {
+		background-color: @color-primary-med-dark;
+	}
+}
+
+.send-button {
+	background-color: @color-highlight;
+	opacity: 0;
+	.raised-button();
+	position: fixed;
+	left: 50%;
+	bottom: 12px;
+	width: 64px;
+	height: 64px;
+	.translate(-50%, -50%);
+	border-radius: 100%;
+	border: none !important;
+	outline: none !important;
+
+	.content {
+		transition: none;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		.translate(-50%, -50%);
+		color: @color-primary-dark;
+	}
+
+	.slash {
+		position: absolute;
+		left: 50%;
+		top: 2px;
+		.rotate(45deg);
+		background-color: @color-black;
+		width: 6px;
+		height: 100%;
+		opacity: 0;
+	}
+
+	&.expanded {
+		left: 66%;
+		opacity: 1;
+		.modal();
+	}
+
+	&:disabled {
+		background-color: @color-content-dark;
+		opacity: 0.7;
+		.box-shadow(none);
+
+		&:hover {
+			.box-shadow(none);
+		}
+
+		.slash {
+			opacity: 0.5;
+		}
+	}
+
+	&.broadcast {
+		.content.broadcast {
+			visibility: visible;
+		}
+		.content.reply {
+			visibility: hidden;
+		}
+	}
+
+	&.reply {
+		.content.broadcast {
+			visibility: hidden;
+		}
+		.content.reply {
+			visibility: visible;
+		}
+	}
+}

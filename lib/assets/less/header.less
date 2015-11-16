@@ -1,0 +1,37 @@
+@header-size: 15vh;
+
+.header-main {
+	height: @header-size;
+	position: relative;
+	display: flex;
+	background-color: @color-content;
+	.justify-content(center);
+	text-align: center;
+	z-index: 4;
+}
+
+.title {
+	color: @color-primary;
+	margin: 0;
+	text-transform: uppercase;
+	text-align: center;
+	font-family: "Raleway", sans-serif;
+	font-size: 8vh;
+	letter-spacing: 1vw;
+
+	text-shadow:
+		1px 1px 0 @color-primary-med-dark,
+		2px 2px 0 @color-primary-med-dark,
+		3px 3px 0 @color-primary-med-dark;
+
+	@media(max-width: @viewport-phone) {
+		font-size: 6vh;
+	}
+}
+
+.subtitle {
+	font-size: 3vh;
+	text-align: center;
+	margin: 0;
+	color: @color-primary-med-dark;
+}
