@@ -1,0 +1,36 @@
+.button {
+	background: @color-blue;
+	padding: 12px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	&:hover {
+		background: lighten(@color-blue, 4);
+	}
+
+	&:disabled {
+		background: lighten(@color-gray, 10);
+	}
+}
+
+form {
+	margin: 0;
+
+	input[type='text'], input[type='password'], textarea, select, option {
+		border: none;
+		outline: none;
+		background: @color-white;
+		padding: 8px;
+		min-height: 32px;
+		margin-bottom: 2px;
+
+		&:hover {
+			background: lighten(@color-white, 3);
+		}
+	}
+
+	input[type='submit'], button, input[type='button'] {
+		.button();
+	}
+}

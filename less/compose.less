@@ -1,0 +1,26 @@
+.compose-form {
+	display: flex;
+	flex-direction: column;
+	background: @color-gray;
+
+	.compose-form-from {
+		height: 24px;
+	}
+
+	.compose-form-input {
+		height: 200px;
+		resize: none;
+
+		@media(max-width: 640px) {
+			height: 64px;
+
+			&:hover, &:focus {
+				height: 120px;
+			}
+		}
+	}
+
+	.compose-form-send {
+
+	}
+}
