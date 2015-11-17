@@ -1,6 +1,7 @@
 var React = require('react');
 var common = require('../common');
 var User = require('./User');
+var AddUsers = require('./AddUsers');
 
 var UserLists = React.createClass({
 	getInitialState : function () {
@@ -40,6 +41,13 @@ var UserLists = React.createClass({
 			'tab active-tab' :
 			'tab';
 
+		var addUsersNode = (
+			<AddUsers
+				role={this.state.activeTab === 0 ? common.ORGANIZERS : common.ATTENDEES }
+				addUser={this.props.addUser}
+				/>
+		);
+
 		return (
 			<div className='user-lists'>
 				<div className='tab-area'>
@@ -63,6 +71,7 @@ var UserLists = React.createClass({
 						attendees
 					}
 				</div>
+				{addUsersNode}
 
 				<div className='expand-button' onClick={this.props.toggleConversationCollapsed}>
 					<i className='fa fa-bars'></i>

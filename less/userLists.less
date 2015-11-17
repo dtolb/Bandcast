@@ -73,3 +73,38 @@
 		}
 	}
 }
+
+.add-users {
+	display: flex;
+	flex-direction: column;
+	overflow-y: hidden;
+	height: 40px;
+
+	@media(max-width: 640px) {
+		margin-left: 10vw;
+	}
+
+	.add-users-expand {
+		.button();
+		height: 40px;
+	}
+
+	.add-users-form {
+		display: flex;
+		flex-direction: column;
+
+		flex: 1;
+
+		.add-users-input {
+			flex: 1;
+		}
+	}
+
+	&.expanded {
+		height: 300px;
+
+		.add-users-expand {
+			background-color: @color-gray;
+		}
+	}
+}

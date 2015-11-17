@@ -73,6 +73,20 @@ var App = React.createClass({
 		});
 	},
 
+	addUser : function (user) {
+		var self = this;
+
+		return common.request({
+			method : 'post',
+			url : '/users',
+			body : user,
+			json : true
+		})
+		.then(function () {
+			self.reload();
+		});
+	},
+
 	toggleConversationCollapsed : function () {
 		this.setState({ conversationCollapsed : !this.state.conversationCollapsed });
 	},
@@ -90,6 +104,7 @@ var App = React.createClass({
 				<UserLists
 					users={this.state.users}
 					requestParentReload={this.reload}
+					addUser={this.addUser}
 					toggleConversationCollapsed={this.toggleConversationCollapsed}
 					/>
 			</div>
