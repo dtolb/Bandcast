@@ -1,6 +1,8 @@
 var React = require('react');
 var Compose = require('./Compose');
 var Message = require('./Message');
+var _ = require('lodash');
+var common = require('../common');
 
 var Conversation = React.createClass({
 
@@ -21,7 +23,10 @@ var Conversation = React.createClass({
 		var messageNodes =
 			this.props.messages ?
 			this.props.messages.map(function (message) {
-				return (<Message key={message.timestamp} message={message} setComposeText={self.setComposeText}/>);
+				var isOrganizerMessage = Boolean(_.find(self.props.users, function (user) {
+					return user.role === common.ORGANIZERS && user.tn === message.from;
+				}));
+				return (<Message key={message.timestamp} message={message} isOrganizerMessage={isOrganizerMessage} setComposeText={self.setComposeText}/>);
 			}) :
 			(<div className='loading'>Loading</div>);
 
