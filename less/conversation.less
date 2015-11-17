@@ -42,20 +42,31 @@
 				margin: 8px 0px;
 			}
 
+			.message-to {
+				display: none;
+				opacity: 0.75;
+				font-style: italic;
+			}
+
+			.message-icon {
+				position: absolute;
+				bottom: 4px;
+				right: 4px;
+				opacity: 0.5;
+				font-size: 0.75em;
+			}
+
 			.message-controls {
 				position: absolute;
 				top: 100%;
 				left: 4px;
+				right: 0;
 				font-size: 0.75em;
 				padding: 4px;
-				opacity: 0;
+				opacity: 0.01;
 				flex-direction: row;
 				display: flex;
 				color: @color-black;
-
-				&:hover {
-					opacity: 0.5;
-				}
 
 				.message-reply {
 					cursor: pointer;
@@ -68,6 +79,10 @@
 
 				.message-controls {
 					left: 16px;
+				}
+
+				.message-icon {
+					color: darken(@color-blue, 12);
 				}
 
 				&:after {
@@ -99,6 +114,27 @@
 					border-left: 8px solid transparent;
 					border-right: 8px solid @color-white;
 					border-bottom: 8px solid transparent;
+				}
+
+				.message-controls {
+					&:hover {
+						opacity: 0.5;
+					}
+				}
+
+				&:hover {
+					.message-controls {
+						opacity: 0.5;
+					}
+				}
+			}
+
+			&.whisper {
+				background: lighten(@color-blue, 30);
+				border: 2px dashed @color-blue;
+
+				.message-to {
+					display: block;
 				}
 			}
 		}

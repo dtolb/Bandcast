@@ -30,12 +30,21 @@ var Compose = React.createClass({
 		this.setState({ from : e.target.value });
 	},
 
+	keyPress : function (e) {
+		if (e.which === 10 || e.which === 13) {
+			e.preventDefault();
+			this.handleSend();
+		}
+	},
+
 	setText : function (text) {
 		this.setState({ text : text });
 	},
 
 	handleSend : function (event) {
-		event.preventDefault();
+		if (event) {
+			event.preventDefault();
+		}
 
 		var payload = {
 			from : this.state.from,
@@ -73,7 +82,7 @@ var Compose = React.createClass({
 					<option disabled value='default'>No Organizers!</option>
 					{fromOptions}
 				</select>
-				<textarea ref='text' className='compose-form-input' value={this.state.text} onChange={this.onTextChange}></textarea>
+				<textarea ref='text' className='compose-form-input' value={this.state.text} onChange={this.onTextChange} onKeyPress={this.keyPress}></textarea>
 				<input type='submit' className='compose-form-send' value={submitMessage} disabled={submitDisabled} />
 			</form>
 		);
