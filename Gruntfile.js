@@ -3,7 +3,6 @@ var _ = require('lodash');
 
 module.exports = function (grunt) {
 	var coverage = 100;
-	var lessFiles = './lib/assets/less/**/*.less';
 	var sourceFiles = ['*.js', 'lib/**/*.js'];
 	var testFiles = ['test/**/*.js'];
 	var allFiles = sourceFiles.concat(testFiles);
@@ -53,16 +52,48 @@ module.exports = function (grunt) {
 
 		watch: {
 			less: {
-				files: lessFiles,
+				files: [ "./less/**" ],
 				tasks: [ 'less:default' ]
+			},
+
+			client : {
+				files : [ "./client/**" ],
+				tasks : [ "browserify:client" ]
 			}
 		},
 
 		less: {
 			default: {
 				files: {
-					'./static/css/style.css': './lib/assets/less/style.less'
+					'./static/css/style.css': './less/index.less'
 				}
+			}
+		},
+
+		browserify : {
+			client : {
+				options : {
+					browserifyOptions : {
+						extensions : [
+							'.jsx',
+							'.js'
+						],
+					},
+
+					transform : [
+						[ "babelify", { presets : [ 'react', 'es2015' ] } ]
+					]
+				},
+				files   : {
+					"./static/js/bandcast.js" : [ "./client/index.jsx" ]
+				}
+			}
+		},
+
+		parallel : {
+			assets : {
+				options : { grunt : true, stream : true },
+				tasks   : [ "watch:client", "watch:less" ]
 			}
 		}
 	});
@@ -87,12 +118,15 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-mocha-istanbul');
+	grunt.loadNpmTasks("grunt-browserify");
+	grunt.loadNpmTasks("grunt-parallel");
 
 	// Rename tasks
 	grunt.task.renameTask('mocha_istanbul', 'mochaIstanbul');
 
 	// Register tasks
-	grunt.registerTask('assets', [ 'less:default' ]);
+	grunt.registerTask('assets', [ 'less:default', 'browserify:client' ]);
+	grunt.registerTask('dev', [ 'assets', 'parallel:assets' ]);
 	grunt.registerTask('test', [ 'mochaIstanbul:coverage' ]);
 	grunt.registerTask('lint', 'Check for common code problems.', ['jshint']);
 	grunt.registerTask('style', 'Check for style conformity.', ['jscs']);

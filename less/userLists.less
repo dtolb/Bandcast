@@ -1,0 +1,75 @@
+.user-lists {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	background: @color-gray;
+	padding-left: 4px;
+	position: relative;
+
+	@media(max-width: 640px) {
+		width: 100vw;
+	}
+
+	.tab-area {
+		display: flex;
+		flex-direction: row;
+
+		.tab {
+			flex: 1;
+			height: 64px;
+			line-height: 64px;
+			text-align: center;
+			cursor: pointer;
+
+			&.active-tab {
+				background: @color-white;
+			}
+		}
+	}
+
+	.expand-button {
+		position: absolute;
+		bottom: 8px;
+		left: 2vw;
+		opacity: 0.5;
+		display: none;
+		font-size: 8vw;
+		cursor: pointer;
+
+		@media(max-width: 640px) {
+			display: block;
+		}
+	}
+
+	.users {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		background: @color-white;
+		overflow-y: auto;
+
+		.user {
+			padding: 12px 48px 12px 12px;
+			min-height: 24px;
+			line-height: 24px;
+			position: relative;
+			background: @color-blue;
+			margin-top: 4px;
+			flex: 0 0 auto;
+
+			.user-delete {
+				position: absolute;
+				top: 50%;
+				right: 16px;
+				transform: translateY(-50%);
+				font-size: 1.2em;
+				cursor: pointer;
+				opacity: 0.25;
+
+				&:hover {
+					opacity: 0.75;
+				}
+			}
+		}
+	}
+}

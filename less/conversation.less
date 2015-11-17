@@ -1,0 +1,106 @@
+.conversation {
+	display: flex;
+	flex-direction: column;
+
+	flex: 1;
+
+	@media(max-width: 640px) {
+		flex: 0 0 90vw;
+		width: 90vw;
+
+		&.collapsed {
+			width: 0;
+			flex: 0;
+		}
+	}
+
+	.message-list {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		background: @color-gray;
+		overflow-y: auto;
+
+		.message {
+			margin: 16px;
+			padding: 12px;
+			position: relative;
+			flex: 1 0 auto;
+
+			max-width: 80%;
+
+			.message-from {
+				opacity: 0.5;
+			}
+
+			.message-timestamp {
+				opacity: 0.5;
+				font-size: 0.75em;
+			}
+
+			.message-text {
+				margin: 8px 0px;
+			}
+
+			.message-controls {
+				position: absolute;
+				top: 100%;
+				left: 4px;
+				font-size: 0.75em;
+				padding: 4px;
+				opacity: 0;
+				flex-direction: row;
+				display: flex;
+				color: @color-black;
+
+				&:hover {
+					opacity: 0.5;
+				}
+
+				.message-reply {
+					cursor: pointer;
+				}
+			}
+
+			&.organizer-message {
+				margin-right: auto;
+				background: @color-blue;
+
+				.message-controls {
+					left: 16px;
+				}
+
+				&:after {
+					content: " ";
+					position: absolute;
+					top: 100%;
+					left: 0;
+					height: 0px;
+					width: 0px;
+					border-top: 8px solid @color-blue;
+					border-left: 8px solid @color-blue;
+					border-right: 8px solid transparent;
+					border-bottom: 8px solid transparent;
+				}
+			}
+
+			&.attendee-message {
+				margin-left: auto;
+				background: @color-white;
+
+				&:after {
+					content: " ";
+					position: absolute;
+					top: 100%;
+					right: 0;
+					height: 0px;
+					width: 0px;
+					border-top: 8px solid @color-white;
+					border-left: 8px solid transparent;
+					border-right: 8px solid @color-white;
+					border-bottom: 8px solid transparent;
+				}
+			}
+		}
+	}
+}
