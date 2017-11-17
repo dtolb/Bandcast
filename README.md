@@ -5,6 +5,10 @@
 <a href="http://dev.bandwidth.com"><img src="https://s3.amazonaws.com/bwdemos/BW_Messaging.png"/></a>
 </div>
 
+<div align="center"> 
+<b>This application is outdated, but will be updated soon!</b><br><br>
+</div> 
+
 Two Way SMS Communication for Events
 Bandcast allows Event Attendees and Event Organizers to communicate over a common phone number.
 Organizers are able to directly text users as well as message every attendee at once.
