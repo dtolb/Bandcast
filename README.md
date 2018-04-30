@@ -1,13 +1,13 @@
 <div align="center">
 
-# Bandcast 
+# Bandcast
 
 <a href="http://dev.bandwidth.com"><img src="https://s3.amazonaws.com/bwdemos/BW_Messaging.png"/></a>
 </div>
 
-<div align="center"> 
+<div align="center">
 <b>This application is outdated, but will be updated soon!</b><br><br>
-</div> 
+</div>
 
 Two Way SMS Communication for Events
 Bandcast allows Event Attendees and Event Organizers to communicate over a common phone number.
@@ -65,15 +65,7 @@ Then Create the database within Postgresql.
 bandcast uses environment varaibles to configure the application.
 
 #### Database Related Variables
-```DB_USER``` - Username for Postgresql database
-
-```DB_PASS``` - Password for Postgresql database
-
-```DB_NAME``` - Name of Database
-
-```DB_HOST``` - Location of Postgresql database
-
-```DB_PORT``` - Database port
+```DATABASE_URL``` - Database Url
 
 #### Catapult Related Varaibles
 ```CATAPULT_BASE_URL``` - The location of the catapult sever. Defaults to ```'https://api.catapult.inetwork.com/v1'```
